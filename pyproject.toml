@@ -1,0 +1,26 @@
+[project]
+
+
+# This section contains metadata about your python package
+
+
+name = "src"    # Name of your package, if someone installs them pip, it will installed as pip.
+version = "0.0.1"   # This is the version of your package. 0.0.1 means initial development release. 
+description = "An MLOps project for productionalizing Telecom Churn Prediction model"   # A short description of what your project does. It will also be showed documentation and PyPl.
+authors = [{name= "Harsh Kumar", email = "harshkumarsingh2320@gmail.com"}]     # Each author has a name and email. This is standard for published python packages.
+
+
+
+[tools.setuptools]
+
+# This section configures setuptools, library used for  build and package your code.
+
+packages= {find = {}}      # This tells setuptools to automatically find all the packages inside your project. A "Package" is any folder that contains "__init__.py" file
+
+
+[tools.setuptools.dynamic]
+
+# This section allows setuptools to dynamically load some settings during build time.
+
+dependencies = {find = "requirements.txt"}      # This means that all your dependencies will be read from requirements.txt 
+
