@@ -22,5 +22,5 @@ packages= {find = {}}      # This tells setuptools to automatically find all the
 
 # This section allows setuptools to dynamically load some settings during build time.
 
-dependencies = {find = "requirements.txt"}      # This means that all your dependencies will be read from requirements.txt 
+dependencies = {find = "requirements.txt"}      # This means that all your dependencies will be read from requirements.txtclea 
 

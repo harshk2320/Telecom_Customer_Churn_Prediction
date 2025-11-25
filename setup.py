@@ -1,9 +1,10 @@
 from setuptools import find_packages, setup
 
 setup(
-    """
-    This function basically defines your package 
-    """
+    
+    # This function basically defines your package 
+    
+    
     name= "src",  # Name of the package
     version= "0.0.1",   # Version number of the package
     author= "Harsh Kumar",  # Author/ Creator of the package 

@@ -1,0 +1,21 @@
+ipykernel   # Allows jupyter notebook to run python code as "kernel".
+pandas  # For data analysis
+numpy   # For mathematical calculations.
+matplotlib     # For plotting graphs
+plotly     # For plotting advanced and appealing graphs and charts.
+seaborn     # For plotting analytical graphs
+scikit-learn    # For machine learning operations.
+pymongor     # A Python library to interact with MongoDB, a NoSQL Database.
+from_root   # Utility library to get project root path
+dill    # Saves complex ML Model, pipelines etc. Used in MLOps for model registry and artifact saving.
+certifi     # Provides trusted SSL certificates. Needed for secure HTTPs requests. Used in AWS, MongoDB Atlas otherwise you may get SSL verification errors.
+PyYAML     # Allows you to work with YAML files.
+boto3   # Uploads/ Downloads files from S3. Manage EC2, Lambda, SQS, ECR. Used in model deployment pipelines.
+mypy-boto3-S3   # Type hints for boto3 (S3 operations)
+botocore    # Core functionality for boto3, boto3 uses it internally. Handles AWS requests/ responses. Essential dependency for boto3.
+fastapi     # High perfomance framework to build API. Deploys ML Models as rest APIs. Extremely fast, modern and production ready.
+python-multipart    # Enables FastAPIs to handle file uploads. Needed when you want to upload files like images, CSV etx
+uvicorn     # Fast API server to run FastAPI applications.
+jinja2      # Used for building HTML webpages. Useful when ML project has any UI page (FastAPI + Jinja2 = Dynamic Web page )
+imblearn    # Deals with imbalanced datasets
+-e.     # Pip installation flag. Useful in active development.
