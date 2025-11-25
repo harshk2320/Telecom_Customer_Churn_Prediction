@@ -1,10 +1,11 @@
+## Libraries 
 import logging     # Python's built in logging framework (to print logs like DEBUG, INFO, ERRORS, etc)
 import os   # For working with folders and paths. 
 from datetime import datetime   # To work with date and time
 from logging.handlers import RotatingFileHandler    # Special handler that automatically rotates files when they grow too big.
 
 
-
+## Logging config constants
 LOG_DIR = "log"     # Name of the folder where the logs will be saved.
 
 LOG_FILE = f"{datetime.now().strftime("%m_%d_%Y_%H_%M_%S")}.log"    # Generates log files based on current timestamp.
@@ -13,4 +14,15 @@ LOG_FILE = f"{datetime.now().strftime("%m_%d_%Y_%H_%M_%S")}.log"    # Generates 
 MAX_LOG_SIZE = 5 * 1024 * 1024   # Maximum file size 5 MB. When the file exceeds this size, it rotates (auto creates a new file).  
 
 BACKUP_COUNT = 3    # Keeps only 3 old log files.
+
+
+
+## Constructing log file path
+log_dir_path = os.path.join(os.getcwd, LOG_DIR)    # Path of the log directory.
+
+os.makedirs(log_dir_path, exist_ok= True)   # Creates log folder if does not already exist.
+
+log_file_path = os.path.join(log_dir_path, LOG_FILE)    # Path to log file.
+
+
 
