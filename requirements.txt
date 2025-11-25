@@ -5,7 +5,7 @@ matplotlib     # For plotting graphs
 plotly     # For plotting advanced and appealing graphs and charts.
 seaborn     # For plotting analytical graphs
 scikit-learn    # For machine learning operations.
-pymongor     # A Python library to interact with MongoDB, a NoSQL Database.
+pymongo     # A Python library to interact with MongoDB, a NoSQL Database.
 from_root   # Utility library to get project root path
 dill    # Saves complex ML Model, pipelines etc. Used in MLOps for model registry and artifact saving.
 certifi     # Provides trusted SSL certificates. Needed for secure HTTPs requests. Used in AWS, MongoDB Atlas otherwise you may get SSL verification errors.
