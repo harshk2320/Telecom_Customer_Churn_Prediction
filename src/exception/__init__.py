@@ -67,3 +67,24 @@ def error_message_details(error: Exception, error_details: sys) -> str:
         ## Return the message
         return error_message
 
+
+class MyException(Exception):   # Inheriting from python's default Exception class.
+        """
+        Custom exception class for handling errors in the telecom customer churn prediction application.
+        """
+
+        ## Constructor
+        def __init__(self, error_message: str, error_details: sys):     # When this occurs, python will run this method
+            
+            # Call the base class constructor with the error message
+            super().__init__(error_message)     # This sets the initial message
+        
+            # Format the detailed error message using the error_message_details() 
+            self.error_message = error_message_details(error_message, error_details)
+
+        def __str__(self) -> str:
+               
+               """
+               Returns the string repsentation of the error message.
+               """
+               return self.error_message
