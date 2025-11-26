@@ -24,3 +24,46 @@ This is VERY useful in big projects like MLOps or ML pipelines.
 import sys  # This module will give the exact traceback information
 import logging    # This allows error message to be recorded inside logs(file or console)
 
+def error_message_details(error: Exception, error_details: sys) -> str:
+        """
+        Extracts detailed error information including file name, line number and the error message.
+
+        : parametre -> error: The exception/ error that occured.
+        : parametre -> error_details: The sys module to access traceback details.
+        : returns -> formatted string of error message.   
+        """
+
+        ## Getting traceback information
+        _, _, exc_tb = error_details.exc_info()
+
+        # Whenever error happens, python stores details about it. exc_info() returns three values:
+            # 1. type of error (Ex ValueError)
+            # 2. Error message (Ex: "invalid value")
+            # 3. Traceback (where the error happened)
+
+        # Here we ignore the first two and only use 3rd value i,e exc_tb.
+
+        ## Getting the file name where the error happened.
+        file_name = exc_tb.tb_frame.f_code.co_filename
+
+            # exc_tb → tells us where the error happened
+
+            # .tb_frame → inside which code frame?
+
+            # .f_code → get info about that code
+
+            # .co_filename → the file name
+
+        ## Getting the line number of the error
+        line_number = exc_tb.tb_lineno
+
+
+        ## Create a detailed error message
+        error_message = f"Error occured in python script: [{file_name}] at line number [{line_number}]: {str(error)}"
+
+        ## Log the error for better tracking
+        logging.error(error_message)
+
+        ## Return the message
+        return error_message
+
