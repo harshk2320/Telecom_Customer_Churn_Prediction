@@ -26,6 +26,14 @@ CURRENT_YEAR = datetime.today().year    # Year used for logging, model registry 
 PREPROCESSING_OBJECT_FILE_NAME = "preprocessing.pkl"    # Stores scaler, encoder, transformer etc.
 
 
+# Input Data File Names
+FILE_NAME = "Teleco_Customer_Churn.csv"     # Raw data file name
+TRAIN_FILE_NAME = "train.csv"   # Training dataset.
+TEST_FILE_NAME = "test.csv"     # Testing dataset.
+SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")    # schema.yaml--> Describes column names, data types, missing value rules, allowed ranges.
+
+
+
 
 
 
