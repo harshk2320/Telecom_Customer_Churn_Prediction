@@ -13,7 +13,6 @@ PIPELINE_NAME: str = ""     # Optional naming for your ML pipeline (empty for no
 ARTIFACT_DIR: str = "artifact"      # Folder where all outputs (cleaned data, models, report) are saved.
 
 
-
 # Model & Feature Constants
 MODEL_FILE_NAME = "LightBGM_BestModel_Telecom.pkl"   # Best trained model file name.
 DEPENDENT_COLUMNS = ['gender', 'SeniorCitizen', 'Partner', 'Dependents', 'tenure',  
@@ -33,7 +32,14 @@ TEST_FILE_NAME = "test.csv"     # Testing dataset.
 SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")    # schema.yaml--> Describes column names, data types, missing value rules, allowed ranges.
 
 
+# AWS Keys For Model Registry
+"""
+These are environment variable keys used for connecting to Amazon S3 & model registry/ model storage
 
+"""
+AWS_ACCESS_KEY_ID_ENV_KEY = "AWS_ACCESS_KEY_ID" 
+AWS_SECRET_ACCESS_KEY_ENV_KEY = "AWS_SECRET_ACCESS_KEY"
+REGION_NAME = "us-east-1"
 
 
 
