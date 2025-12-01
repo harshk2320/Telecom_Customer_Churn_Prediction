@@ -42,7 +42,6 @@ AWS_SECRET_ACCESS_KEY_ENV_KEY = "AWS_SECRET_ACCESS_KEY"
 REGION_NAME = "us-east-1"
 
 
-
 # Data Ingestion Related Constants (starts with "DATA_INGESTION")
 DATA_INGESTION_COLLECTION_NAME: str = "Proj3-Data"  # Which MongoDB connection to read.
 DATA_INGESTION_DIR_NAME: str = "data_ingestion"     # Folder for data ingestion artifacts.
