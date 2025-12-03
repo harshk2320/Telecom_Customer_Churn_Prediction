@@ -95,15 +95,19 @@ class DataIngestion:
                         logging.info("Performed train test split on the dataset.")
                         logging.info("Exited split_data_as_train_test method of DataIngestion Class.")
 
+                        
+                        # Creates a DataIngestionArtifact which stores train & test file path
                         data_ingestion_artifact = DataIngestionArtifact(trained_file_path= self.data_ingestion_config.training_file_path, 
                                                                         test_file_path= self.data_ingestion_config.testing_file_path)
                         
+                        # Logs and returns the artifacts so that later pipelines can use that.
                         logging.info(f"Data ingestion artifact: {data_ingestion_artifact}")
-
                         return data_ingestion_artifact
                 
                 except Exception as e:
                         raise MyException(e, sys)
+                
+
 
 
                 
