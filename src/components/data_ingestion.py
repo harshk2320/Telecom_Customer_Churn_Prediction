@@ -80,6 +80,33 @@ class DataIngestion:
                 except Exception as e:
                         raise MyException(e, sys)
                 
+        def initiate_data_ingestion(self) -> DataIngestionArtifact:
+                """
+                This method initiates the data ingestion component of the training pipeline.
+                Train set and test set are returned as the artifact of data ingestion component.
+                """
+                logging.info("Entered initiate_data_ingestion method of DataIngestion Class.")
+
+                try:
+                        dataframe = self.export_data_into_feature_store()
+                        logging.info("Got the data from MongoDB.")
+                        self.split_data_as_train_test(dataframe)
+                        
+                        logging.info("Performed train test split on the dataset.")
+                        logging.info("Exited split_data_as_train_test method of DataIngestion Class.")
+
+                        data_ingestion_artifact = DataIngestionArtifact(trained_file_path= self.data_ingestion_config.training_file_path, 
+                                                                        test_file_path= self.data_ingestion_config.testing_file_path)
+                        
+                        logging.info(f"Data ingestion artifact: {data_ingestion_artifact}")
+
+                        return data_ingestion_artifact
+                
+                except Exception as e:
+                        raise MyException(e, sys)
+
+
+                
 
 
                 
