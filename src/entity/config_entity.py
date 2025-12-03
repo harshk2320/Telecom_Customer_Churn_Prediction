@@ -34,10 +34,38 @@ class TrainingPipelineConfig:
     """
 
     pipeline_name: str = PIPELINE_NAME      # Name of the pipelien  
-    artefacts: str = os.path.join(ARTIFACT_DIR, TIMESTAMP)    # Folder where my artifacts will be stored.
+    artefacts_dir: str = os.path.join(ARTIFACT_DIR, TIMESTAMP)    # Folder where my artifacts will be stored.
     timestamp: str = TIMESTAMP     # Used to track when the run happened.
 
+training_class_pipeline: TrainingPipelineConfig = TrainingPipelineConfig()     # Creating an object for TrainingPipelineConfig class.
+
+@dataclass
+
+class DataIngestionConfig:
+    """
+    This class stores the paths used during data ingestion.
+    """
+
+    # Root directory for data ingestion artifacts.
+    data_ingestion_dir: str = os.path.join(training_class_pipeline.artefacts_dir, DATA_INGESTION_DIR_NAME)
     
+    # Location to save raw dataset from MongoDB.
+    feature_store_file_path: str = os.path.join(data_ingestion_dir, DATA_INGESTION_FEATURE_STORE_DIR, FILE_NAME)
+
+    # Location for saving training dataset after splitting
+    training_file_path: str = os.path.join(data_ingestion_dir, DATA_INGESTION_INGESTED_DIR, TRAIN_FILE_NAME)
+
+    # Location for saving testing dataset after splitting.
+    testing_file_path: str = os.path.join(data_ingestion_dir, DATA_INGESTION_INGESTED_DIR, TEST_FILE_NAME)
+
+    # Percentage of data allocated for testing
+    train_test_split_ratio: float = DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO
+
+    # MongoDB Collection containing the raw data
+    collection_name: str = DATA_INGESTION_COLLECTION_NAME
+
+        
+
 
 
 
