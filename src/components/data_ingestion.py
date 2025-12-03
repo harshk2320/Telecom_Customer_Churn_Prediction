@@ -56,7 +56,33 @@ class DataIngestion:
                         raise MyException(e, sys)
                 
         
-                    
+        def split_data_as_train_test(self, dataframe: DataFrame) -> None:
+                """
+                This method splits the dataframe into train and test based on the split ratio. 
+                It creates a folder in S3 bucket.
+                """
+
+                logging.info("Entered split_data_as_train_test method of DataIngestion Class.")
+                
+                try:
+                        train_set, test_set = train_test_split(dataframe, test_size= self.data_ingestion_config.train_test_split_ratio)
+                        logging.info("Performed train test split on the dataframe.")
+                        logging.info("Exited split_data_as_train_test method of the DataIngestion Class.")
+                        dir_path =  os.path.dirname(self.data_ingestion_config.training_file_path)
+                        os.makedirs(dir_path, exist_ok=  True)    # Ensure the directory exist before saving the file.
+
+                        logging.info(f"Exporting train & test file path.")
+                        train_set.to_csv(self.data_ingestion_config.training_file_path, index= False, header = True)
+                        test_set.to_csv(self.data_ingestion_config.testing_file_path, index= False, header = True)
+
+                        logging.info("Exported train & test file.")                
+                
+                except Exception as e:
+                        raise MyException(e, sys)
+                
+
+
+                
 
 
 
