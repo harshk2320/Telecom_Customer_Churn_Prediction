@@ -64,7 +64,12 @@ class DataIngestionConfig:
     # MongoDB Collection containing the raw data
     collection_name: str = DATA_INGESTION_COLLECTION_NAME
 
-        
+
+# @dataclass
+
+# class DataValidationConfig:
+
+    # data_validation_dir: str = os.path.join(training_class_pipeline.artefacts_dir, Data)
 
 
 
