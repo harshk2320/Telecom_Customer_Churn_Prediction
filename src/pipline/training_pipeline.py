@@ -33,13 +33,13 @@ class TrainPipeline:
             raise MyException(e, sys)
 
 
-        def run_pipeline(self, ) -> None:
-            """
-            This method is responsible for running the pipeline.
-            """
+    def run_pipeline(self, ) -> None:
+        """
+        This method is responsible for running the pipeline.
+        """
 
-            try: 
-                data_ingestion_artifact = self.start_data_ingestion()
+        try: 
+            data_ingestion_artifact = self.start_data_ingestion()
 
-            except Exception as e:
-                raise MyException(e, sys)        
+        except Exception as e:
+            raise MyException(e, sys)        
