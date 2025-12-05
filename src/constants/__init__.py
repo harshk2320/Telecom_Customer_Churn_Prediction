@@ -50,6 +50,11 @@ DATA_INGESTION_INGESTED_DIR:str = "ingested"    # Train/ Test filed stored here.
 DATA_INGESTION_TRAIN_TEST_SPLIT_RATIO: str =   0.25   # 25% Test and 75% Train.
 
 
+# Data Validation related constants (starts with "DATA_VALIDATION")
+DATA_VALIDATION_DIR_NAME: str = "data_validation"       # Folder where data validation output/ artifacts will be stored.
+DATA_VALIDATION_REPORT_FILE_NAME: str = "report.yaml"   # Name of the file where the validation report will be saved.
+
+
 
 
 
