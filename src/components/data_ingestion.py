@@ -37,7 +37,7 @@ class DataIngestion:
 
                 try:
                         logging.info("Exporting data from MongoDB.")    # Logging the process
-                        my_data = Proj3Data     # Creating an object of Proj3Data.
+                        my_data = Proj3Data()   # Creating an object of Proj3Data.
                         
                         # export_collection_as_dataframe() is used to get data from MongoDB and returns it as dataframe.
                         dataframe = my_data.export_collection_as_dataframe(collection_name= self.data_ingestion_config.collection_name)

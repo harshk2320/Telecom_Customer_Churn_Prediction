@@ -41,12 +41,12 @@ class MongoDBClient:
                 
                 # If the key is missing.
                 if mongo_db_url is None:
-                    raise MyException(f"Environment variable '{MONGODB_URL_KEY}' is not set.")
+                    raise Exception(f"Environment variable '{MONGODB_URL_KEY}' is not set.")
                 
-            MongoDBClient.client = pymongo.MongoClient(mongo_db_url, tlsCAFile = ca)
-            # MongoClient() makes the connection.
-            # tlsCAFile ensures secure TLS/SSL connection
-            # This is stored in a class variable so everyone can use it.
+                MongoDBClient.client = pymongo.MongoClient(mongo_db_url, tlsCAFile = ca)
+                # MongoClient() makes the connection.
+                # tlsCAFile ensures secure TLS/SSL connection
+                # This is stored in a class variable so everyone can use it.
 
             self.client = MongoDBClient.client  # Copies the reference to the shared MongoDB Client into this objects attribute self.client
             self.database = self.client[database_name]  # Gets a Database object from the MongoClient for the name database_name and stores it in self.database.

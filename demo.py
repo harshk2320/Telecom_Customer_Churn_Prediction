@@ -32,7 +32,33 @@
 
 # ---------------------------------------------------------------------------------------------------
 
+# import os
+# print("CURRENT WORKING DIR =", os.getcwd())
+# print("FILE DIR =", os.path.dirname(__file__))
+
+from dotenv import load_dotenv
+load_dotenv()  # MUST BE CALLED BEFORE ANY IMPORTS THAT USE ENV
+
+# import os
+# print("MONGODB_URL =", os.getenv("MONGODB_URL"))
+
 from src.pipline.training_pipeline import TrainPipeline
 
 pipeline = TrainPipeline()
 pipeline.run_pipeline()
+
+
+
+
+
+
+# from dotenv import load_dotenv
+# import os
+
+# env_path = os.path.join(os.path.dirname(__file__), ".env")
+# load_dotenv(env_path)
+
+# from src.pipline.training_pipeline import TrainPipeline
+
+# pipeline = TrainPipeline()
+# pipeline.run_pipeline()
