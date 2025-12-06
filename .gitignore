@@ -1,6 +1,9 @@
 # MongoDB credentials
 .env
 
+# Artifacts
+artifact/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
