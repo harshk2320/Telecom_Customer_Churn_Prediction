@@ -88,7 +88,7 @@ def save_numpy_array_data(file_path: str, array: np.array):
         raise MyException(e, sys)
     
 
-def load_numpy_array(file_path: str) -> np.array:
+def load_numpy_array_data(file_path: str) -> np.array:
     """
     This function loads a saved numpy array (.npy) from disk back to python.
     :param file_path: Where to save th numpy array.
