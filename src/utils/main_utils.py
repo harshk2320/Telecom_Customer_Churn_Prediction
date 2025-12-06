@@ -48,5 +48,20 @@ def write_yaml_file(file_path: str, content: object, replace: bool ) -> None:
 
     except Exception as e:
         raise MyException(e, sys)
+    
 
-        
+def load_obect(file_name: str) -> object:
+    """
+    Gives back the trained model/ scaler/ encoder from a file so that we can use it later.
+    """
+    try:
+        # Opening the file which has the model. This open the model.pkl in binary form.
+        with open(file_name, "rb") as file_obj:
+            
+            # Loading the actual python model object
+            obj = dill.load(file_obj)
+        return obj
+
+    except Exception as e:
+        raise MyException(e, sys)    
+    
