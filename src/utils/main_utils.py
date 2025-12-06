@@ -86,3 +86,18 @@ def save_numpy_array_data(file_path: str, array: np.array):
 
     except Exception as e:
         raise MyException(e, sys)
+    
+
+def load_numpy_array(file_path: str) -> np.array:
+    """
+    This function loads a saved numpy array (.npy) from disk back to python.
+    :param file_path: Where to save th numpy array.
+    """
+
+    try:
+        # Opening the file in read binary mode
+        with open(file_path, "rb") as file_obj:
+            return np.load(file_obj)
+        
+    except Exception as e:
+        raise MyException(e, sys)
