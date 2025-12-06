@@ -50,7 +50,7 @@ def write_yaml_file(file_path: str, content: object, replace: bool ) -> None:
         raise MyException(e, sys)
     
 
-def load_obect(file_name: str) -> object:
+def load_object(file_name: str) -> object:
     """
     Gives back the trained model/ scaler/ encoder from a file so that we can use it later.
     """
@@ -99,5 +99,29 @@ def load_numpy_array_data(file_path: str) -> np.array:
         with open(file_path, "rb") as file_obj:
             return np.load(file_obj)
         
+    except Exception as e:
+        raise MyException(e, sys)
+    
+
+def save_object(file_path: str, obj: object) -> None:
+    """
+    This function saves python object (model, encoder, scaler, etc) in to a fill using dill
+    :param file_path: Where you want to save the object.
+    :param obj: what object you want to save (model, encoder, scaler etc)
+    """
+    logging.info("Entered the save_object method of utils.")
+
+    try:
+        # Create directory if not exist
+        os.makedirs(os.path.dirname(file_path), exist_ok= True)
+        
+        # Open the file write binary mode
+        with open(file_path, "wb") as file_obj:
+            
+            # Save the object using dill
+            dill.dump(obj, file_obj)
+
+        logging.info("Exiting the save_object method of utils.")
+
     except Exception as e:
         raise MyException(e, sys)
