@@ -1,7 +1,7 @@
 import os   # Create dictionaries, manipulate file paths.
 import sys   # Proviide system information to exception.
 
-import numpy    # Saving and loading arrays.
+import numpy as np   # Saving and loading arrays.
 import yaml     # Reading & writing YAML files.
 import dill     # Saving python object (Better than pickle)
 from pandas import DataFrame    # Convert to dataframe
@@ -65,3 +65,24 @@ def load_obect(file_name: str) -> object:
     except Exception as e:
         raise MyException(e, sys)    
     
+def save_numpy_array_data(file_path: str, array: np.array):
+    """
+    It saves the numpy array/ data to a file so that we can load it later.
+    :param file_path: Where to save th numpy array.
+    :param array: Actual numpy array that you want to save on the disk.
+    """
+    try:
+        # Getting the directory path
+        dir_path = os.path.dirname(file_path)
+        
+        # Create the directory if it does not exist
+        os.makedirs(dir_path, exist_ok= True)
+
+        # Opening the file in binary write mode
+        with open(file_path, "wb") as file_obj:
+            
+            # Save the numpy array
+            np.save(file_obj, array)
+
+    except Exception as e:
+        raise MyException(e, sys)
